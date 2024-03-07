@@ -3,6 +3,7 @@ package org.example;
 import com.mongodb.client.*;
 import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
+import org.example.logica.L2;
 import org.example.logica.Logica;
 
 import java.util.Arrays;
@@ -16,38 +17,41 @@ public class App {
             MongoCollection<Document> librosCollection = database.getCollection("libro");
 
             Scanner scanner = new Scanner(System.in);
-            while (true) {
-                System.out.println("Seleccione una opción:");
-                System.out.println("1. Insertar libro");
-                System.out.println("2. Buscar libros por título");
-                System.out.println("3. Buscar libros por género");
-                System.out.println("4. Eliminar libro");
-                System.out.println("5. Salir");
 
-                int opcion = scanner.nextInt();
-                scanner.nextLine(); // Consumir la nueva línea después de nextInt()
-
-                switch (opcion) {
-                    case 1:
-                        Logica logica = new Logica();
-                        logica.anyadirLibro(librosCollection);
-                    //    insertarLibro(librosCollection, scanner);
-                        break;
-                    case 2:
-                        buscarPorTitulo(librosCollection, scanner);
-                        break;
-                    case 3:
-                        buscarPorGenero(librosCollection, scanner);
-                        break;
-                    case 4:
-                        eliminarLibro(librosCollection, scanner);
-                        break;
-                    case 5:
-                        return; // Salir del programa
-                    default:
-                        System.out.println("Opción inválida.");
-                }
-            }
+            L2 l2 = new L2();
+            l2.anyadirLibro(librosCollection);
+//            while (true) {
+//                System.out.println("Seleccione una opción:");
+//                System.out.println("1. Insertar libro");
+//                System.out.println("2. Buscar libros por título");
+//                System.out.println("3. Buscar libros por género");
+//                System.out.println("4. Eliminar libro");
+//                System.out.println("5. Salir");
+//
+//                int opcion = scanner.nextInt();
+//                scanner.nextLine(); // Consumir la nueva línea después de nextInt()
+//
+//                switch (opcion) {
+//                    case 1:
+//                        Logica logica = new Logica();
+//                        logica.anyadirLibro(librosCollection);
+//                    //    insertarLibro(librosCollection, scanner);
+//                        break;
+//                    case 2:
+//                        buscarPorTitulo(librosCollection, scanner);
+//                        break;
+//                    case 3:
+//                        buscarPorGenero(librosCollection, scanner);
+//                        break;
+//                    case 4:
+//                        eliminarLibro(librosCollection, scanner);
+//                        break;
+//                    case 5:
+//                        return; // Salir del programa
+//                    default:
+//                        System.out.println("Opción inválida.");
+//                }
+//            }
         }
     }
 
